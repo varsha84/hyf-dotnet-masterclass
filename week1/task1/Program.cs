@@ -7,7 +7,7 @@ string ReverseString(string input)
 {
     char[] characters = input.ToCharArray();
     Array.Reverse(characters);
-    string  ReverseStr = new string(characters);
+    string reverseStr = new string(characters);
     return ReverseStr;
 
 }
