@@ -1,74 +1,57 @@
 ﻿// 4. Adding minutes
 
-var time = new JupiterTime(0, 10);
+var time = new JupiterTime(0, 130);
 PrintTime(time);
 var timeIn20Minutes = time.AddMinutes(-30);
 PrintTime(timeIn20Minutes);
 
 void PrintTime(JupiterTime time)
 {
-    if (time.Minutes < 10)
-    {
-        Console.WriteLine($"{time.Hour}:0{time.Minutes}");
-    }
-    else
-    {
-        Console.WriteLine($"{time.Hour}:{time.Minutes}");
-    }
+    Console.WriteLine($"{time.Hour:00}:{time.Minutes:00}");
+   
 }
-
-
-
 public class JupiterTime
 {
     public int Hour;
     public int Minutes;
     public JupiterTime(int hour, int minutes)
     {
-        if(hour<0 || hour>23)
+        if(hour<0)
         {
-            Console.WriteLine("Hours must be betweem 0 and 23");
-            return;
-        }
-        Hour = hour;
-        if(minutes>59)
-        {
-            Hour +=1;
-            Minutes = minutes-60;
+            Console.WriteLine("Hours must greater than or equal to 0");
         }
         else
         {
-            Minutes = minutes;
+            Hour = hour % 10 + minutes / 60;
+            Minutes = minutes % 60;
         }
+        
     }
     public JupiterTime AddHours(int hour)
     {
         Hour = Hour + hour;
-        if (Hour > 23)
+        if (Hour > 9)
         {
-            Hour = Hour - 24;
+            Hour = Hour % 10;
         }
         if (Hour < 0)
         {
-            Hour = Hour + 24;
+            Hour = Hour + 10;
         }
         return this;
     }
 
     public JupiterTime AddMinutes(int minutes)
     {
-        Minutes = Minutes + minutes;
-        if (Minutes > 59)
-        {
-            Minutes = Minutes - 60;
-            Hour = Hour + 1;
-        }
-        else if (Minutes < 0)
+        Minutes = Minutes + minutes % 60;
+        Hour = Hour + minutes / 60;
+        
+        if (Minutes < 0)
         {
             Minutes = Minutes + 60;
-            Hour = Hour - 1;  //@@TODO: if intial value of hour is zero, then we must also handle it. 
+            Hour = Hour - 1;  
             if(Hour < 0){
-                Hour = Hour + 24;
+                Hour = Hour + 10;
             }
         }
         

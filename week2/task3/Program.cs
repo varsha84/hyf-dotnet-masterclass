@@ -1,21 +1,15 @@
 ﻿// 3. Adding time
-
-var time = new JupiterTime(2, 20);
+var time = new JupiterTime(23, 70);
 PrintTime(time);
 
-var timeIn1Hour = time.AddHours(1);
+var timeIn1Hour = time.AddHours(3);
 PrintTime(timeIn1Hour);
 
 // printing time format
 
 void PrintTime(JupiterTime time)
 {
-    if(time.Minutes < 10){
-        Console.WriteLine($"{time.Hour}:0{time.Minutes}");
-    }
-    else{
-        Console.WriteLine($"{time.Hour}:{time.Minutes}");
-    } 
+    Console.WriteLine($"{time.Hour:00}:{time.Minutes:00}");
 }
 
 // Class JupiterTime
@@ -27,29 +21,23 @@ public class JupiterTime
     //class constructer check hour and minutes
     public JupiterTime(int hour, int minutes)
     {
-        Hour = hour;
-        if(minutes>59){
-            Hour +=1;
-            Minutes = minutes-60;
-        }
-        else{
-            Minutes = minutes;
-        }
-        
+       Hour = hour % 10 + minutes / 60;
+        Minutes = minutes % 60;
+
     }
     // class method defination
-    public JupiterTime AddHours(int hour){
+    public JupiterTime AddHours(int hour)
+    {
         Hour = Hour + hour;
-        if(Hour>23){
-            Hour = Hour - 24;
-        }
-        if(Hour<0)
+        if (Hour > 9)
         {
-            Hour = Hour + 24;
+            Hour = Hour % 10;
+        }
+        if (Hour < 0)
+        {
+            Hour = Hour + 10;
         }
         return this;
     }
-
-    
 }
 

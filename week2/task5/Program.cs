@@ -1,6 +1,6 @@
 ﻿//5. Better printout
 
-var time = new JupiterTime(5, 10);
+var time = new JupiterTime(5, 70);
 Console.WriteLine(time.ToString());
 
 public class JupiterTime
@@ -10,25 +10,19 @@ public class JupiterTime
 
     public override string ToString()
     {
-        return Hour + ":" + Minutes;
+        return $"{Hour:00}:{Minutes:00}";
     }
     public JupiterTime(int hour, int minutes)
     {
-        if(hour<0 || hour>23)
+        if(hour<0)
         {
-            Console.WriteLine("Hours must be betweem 0 and 23");
-            return;
+            Console.WriteLine("Hours must greater than or equal to 0");
         }
-        Hour = hour;
-        if(minutes>59)
-        {
-            Hour +=1;
-            Minutes = minutes-60;
+        else{
+            Hour = hour % 10 + minutes / 60;
+            Minutes = minutes % 60;
         }
-        else
-        {
-            Minutes = minutes;
-        }
+        
     }
     
 }

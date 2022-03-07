@@ -28,30 +28,35 @@ public class Signaler
 
         foreach (var Timer in Timers)
         {
-            Console.WriteLine($"{Timer.Hour} : {Timer.Minutes}");
+
+            Console.WriteLine($"{Timer.Hour:00}:{Timer.Minutes:00}");
         }
 
     }
     public void InformRemainingTimers()
     {
-        if(RemainingTimers.Count ==0){
+        if (RemainingTimers.Count == 0)
+        {
             Console.WriteLine("RemainingTimers No timers added yet.");
             return;
         }
         foreach (var Timer in RemainingTimers)
         {
-            Console.WriteLine($"Remaining Timers {Timer.Hour} : {Timer.Minutes}");
+            Console.WriteLine($"{Timer.Hour:00}:{Timer.Minutes:00}");
         }
 
     }
-    public void Check(JupiterTime time){
-        foreach(var Timer in Timers){
-            if(time.Hour < Timer.Hour )
+    public void Check(JupiterTime time)
+    {
+        foreach (var Timer in Timers)
+        {
+            if (time.Hour < Timer.Hour)
             {
-               RemainingTimers.Add(Timer);
+                RemainingTimers.Add(Timer);
             }
-            else if( (time.Hour == Timer.Hour) && (time.Minutes< Timer.Minutes) ){
-                RemainingTimers.Add(Timer);     
+            else if ((time.Hour == Timer.Hour) && (time.Minutes < Timer.Minutes))
+            {
+                RemainingTimers.Add(Timer);
             }
         }
     }
@@ -66,19 +71,14 @@ public class JupiterTime
 
     public JupiterTime(int hour, int minutes)
     {
-        if (hour < 0 || hour > 23)
+        if (hour < 0)
         {
-            Console.WriteLine("Hours must be betweem 0 and 23");
-        }
-        Hour = hour;
-        if (minutes > 59)
-        {
-            minutes = minutes - 60;
-            Hour += 1;
+            Console.WriteLine("Hours must greater than or equal to 0");
         }
         else
         {
-            Minutes = minutes;
+            Hour = hour % 10 + minutes / 60;
+            Minutes = minutes % 60;
         }
     }
 

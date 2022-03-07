@@ -1,18 +1,14 @@
 ﻿//2. Adding constructor
-var time = new JupiterTime(4, 9);
+var time = new JupiterTime(14, 70);
 
 
 void PrintTime(JupiterTime time)
 {
-    if(time.Minutes < 10){
-        Console.WriteLine($"{time.Hour}:0{time.Minutes}");
-    }
-    else{
-        Console.WriteLine($"{time.Hour}:{time.Minutes}");
-    } 
+    Console.WriteLine($"{time.Hour:00}:{time.Minutes:00}");
 }
 
 PrintTime(time);
+
 public class JupiterTime
 {
     public int Hour;
@@ -20,14 +16,7 @@ public class JupiterTime
 
     public JupiterTime(int hour, int minutes)
     {
-        Hour = hour;
-        if(minutes>59){
-            Hour +=1;
-            Minutes = minutes-60;
-        }
-        else{
-            Minutes = minutes;
-        }
-        
+        Hour = hour % 10 + minutes / 60;
+        Minutes = minutes % 60;
     }
 }
