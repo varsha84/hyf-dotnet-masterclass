@@ -26,12 +26,11 @@ public class Signaler
             return;
         }
 
-        foreach (var Timer in Timers)
+        foreach (var timer in Timers)
         {
 
             Console.WriteLine($"{Timer.Hour:00}:{Timer.Minutes:00}");
         }
-
     }
     public void InformRemainingTimers()
     {
@@ -40,15 +39,14 @@ public class Signaler
             Console.WriteLine("RemainingTimers No timers added yet.");
             return;
         }
-        foreach (var Timer in RemainingTimers)
+        foreach (var timer in RemainingTimers)
         {
             Console.WriteLine($"{Timer.Hour:00}:{Timer.Minutes:00}");
         }
-
     }
     public void Check(JupiterTime time)
     {
-        foreach (var Timer in Timers)
+        foreach (var timer in Timers)
         {
             if (time.Hour < Timer.Hour)
             {

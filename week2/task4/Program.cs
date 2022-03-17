@@ -55,6 +55,6 @@ public class JupiterTime
             }
         }
         
-        return this;
+        return new JupiterTime(Hour, Minutes);
     }
 }

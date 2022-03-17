@@ -12,8 +12,6 @@ signaler.Inform();
 public class Signaler
 {
     List<JupiterTime> Timers = new List<JupiterTime>();
-
-
     public void AddTime(JupiterTime time)
     {
         Timers.Add(time);
@@ -25,15 +23,12 @@ public class Signaler
             Console.WriteLine("No timers added yet.");
             return;
         }
-
-        foreach (var Timer in Timers)
+        foreach (var timer in Timers)
         {
             Console.WriteLine($"{Timer.Hour:00}:{Timer.Minutes:00}");
-            
+
         }
-
     }
-
 }
 
 //class defination JupiterTime
@@ -41,10 +36,9 @@ public class JupiterTime
 {
     public int Hour;
     public int Minutes;
-
     public JupiterTime(int hour, int minutes)
     {
-        if(hour<0)
+        if (hour < 0)
         {
             Console.WriteLine("Hours must greater than or equal to 0");
         }
@@ -53,7 +47,5 @@ public class JupiterTime
             Hour = hour % 10 + minutes / 60;
             Minutes = minutes % 60;
         }
-        
     }
-
 }

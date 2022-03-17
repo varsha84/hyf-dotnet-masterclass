@@ -37,7 +37,7 @@ public class JupiterTime
         {
             Hour = Hour + 10;
         }
-        return this;
+        return new JupiterTime(Hour, Minutes);
     }
 }
 
