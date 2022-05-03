@@ -24,13 +24,12 @@ public class MealController : ControllerBase
     }
 
     /* Add a meal in meal list*/
-
+    
     [HttpPost("AddMeal")]
-    public void AddMeal([FromBody] Meal m)
+    public async Task AddMeal([FromBody] Meal m)
     {
-        _repo.AddMeal(m);
+        await _repo.AddMeal(m);
     }
-
     /* find a meal in list by id*/
 
     [HttpGet("GetMealByID")]
