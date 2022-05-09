@@ -12,36 +12,25 @@ public class ReservationController : ControllerBase
         _repo = repo;
     }
 
-    [HttpGet("GetReservations")]
+    [HttpGet("")]
     public async Task<IEnumerable<Reservation>> GetReservations()
     {
 
         return await _repo.ListReservations();
     }
 
-    [HttpPost("AddReservation")]
+    [HttpPost("")]
     public async Task AddReservation([FromBody] Reservation r)
     {
         await _repo.AddReservation(r);
     }
 
-    [HttpGet("ReservationByMealID")]
+    [HttpGet("{id}")]
     public async Task <List<Reservation>> GetMealReservations(int id)
     {
         return await _repo.GetMealReservations(id);
 
 
     }
-    [HttpDelete("Deletereservation")]
-    public async Task DeleteReservation(int id)
-    {
-        await _repo.DeleteReservation(id);
-    }
-
-    [HttpPatch("UpdateReservation")]
-    public async Task UpdateReservation([FromBody] Reservation r)
-    {
-        await _repo.UpdateReservation(r);
-    }
-
+    
 }

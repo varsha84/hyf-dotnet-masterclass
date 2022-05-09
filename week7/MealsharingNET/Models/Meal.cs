@@ -8,6 +8,6 @@ public class Meal{
     public string Location { get; set; }
     public int MaxReservations { get; set; }
     public DateTime Created_date { get; set; }
-    public DateTime Serving_date { get; set; }
+    public DateTime When { get; set; }
     
 }

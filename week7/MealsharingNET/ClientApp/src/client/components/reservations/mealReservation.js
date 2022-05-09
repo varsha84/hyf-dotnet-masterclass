@@ -23,13 +23,13 @@ function AddMealReservation(props){
 const handleSubmit=(e)=>{
     e.preventDefault();
     
-    const newReservation = {
-        number_of_guests: guests,
-        meal_id: mealId,
-        created_date: new Date().toISOString().slice(0, 10),
-        contact_phonenumber: phoneNumber,
-        contact_name: contactName,
-        contact_email: email,
+    const newReservation = {      
+      mealID: mealId,
+      name: contactName,
+      mobileNo: phoneNumber,
+      email: email,
+      reservationDate: new Date().toISOString().slice(0, 10),
+      numOfPersons: guests
     };
     console.log(newReservation);
 
@@ -39,7 +39,7 @@ const handleSubmit=(e)=>{
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newReservation)
     })
-    .then(response => response.json())
+    //.then(response => response.json())
     .then(data => {
         console.log(data)
         alert("reservation done")
@@ -55,8 +55,8 @@ React.useEffect(()=>{
     .then(response=>response.json())
     .then(data => {
         console.log(data)
-        setMeal(data[0])
-        setImageName(getImageName(data[0].title))
+        setMeal(data)
+        setImageName(getImageName(data.title))
     })},[])
     console.log(meal)
     

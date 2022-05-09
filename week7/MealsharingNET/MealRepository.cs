@@ -11,7 +11,7 @@ public class MealRepository: IMealRepository {
     {
 
         await using var connection = new MySqlConnection(Shared.ConnectionString);
-        var mealId = await connection.ExecuteAsync("INSERT INTO meals VALUES (@ID, @Title, @Description, @Price, @ImageUrl,@Location,@MaxReservations, @Created_date, @Serving_date)", meal);
+        var mealId = await connection.ExecuteAsync("INSERT INTO meals VALUES (@ID, @Title, @Description, @Price, @ImageUrl,@Location,@MaxReservations, @Created_date, @When)", meal);
     }
 
     public async Task DeleteMeal(int id)
@@ -36,7 +36,7 @@ public class MealRepository: IMealRepository {
     public async Task UpdateMeal(Meal meal)
     {
         await using var connection = new MySqlConnection(Shared.ConnectionString);
-        await connection.ExecuteAsync("UPDATE meals SET id=@id, title=@title, description=@description, price=@price, imageUrl=@imageUrl, location=@location, maxReservation=@maxReservation, created_date=@created_date, serving_date=@serving_date WHERE id=@id", meal);
+        await connection.ExecuteAsync("UPDATE meals SET id=@ID, title=@Title, description=@Description, price=@Price, imageUrl=@ImageUrl, location=@Location, maxReservation=@MaxReservation, created_date=@Created_date, when=@When WHERE id=@id", meal);
     }
 }
 

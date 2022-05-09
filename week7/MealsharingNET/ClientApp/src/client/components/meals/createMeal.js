@@ -40,9 +40,10 @@ function CreateMeal(){
           title: title,
           description: description,
           location:location,
-          when: when.replace("T", " ") + ":00",
+          when: new Date(when).toISOString(),
           max_reservations : maxReservations,
           price : price,
+          imageUrl: " ",
           created_date: new Date().toISOString().slice(0, 10),
 
       }
@@ -54,7 +55,7 @@ function CreateMeal(){
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(createNewMeal)
       })
-      .then(response => response.json())
+      //.then(response => response.json())
       .then(data => {
           console.log(data);
             alert("meal created successfully")

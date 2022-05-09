@@ -23,9 +23,9 @@ function AddMealReview(props){
         fetch(`/api/meals/${mealId}`)
         .then((response)=>response.json())
         .then((data)=>{
-            console.log(data[0])
-            setMeal(data[0])
-            setImageName(getImageName(data[0].title))
+            console.log(data)
+            setMeal(data)
+            setImageName(getImageName(data.title))
         })
         .catch((e)=>console.log(e))
 
@@ -45,11 +45,11 @@ function AddMealReview(props){
         // new Review
         
         const newReview={
-            title: title,
-            description: description,
-            meal_id : mealId,
-            stars : stars,
-            created_date: new Date().toISOString().slice(0, 10),
+          title: title,
+          description: description,
+          meal_ID : mealId,
+          stars : stars,
+          created_date: new Date().toISOString().slice(0, 10),
 
         }
         console.log("review::"+ newReview);
@@ -60,7 +60,7 @@ function AddMealReview(props){
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(newReview)
         })
-        .then(response => response.json())
+        //.then(response => response.json())
         .then(data => {
             console.log(data)
             alert("Review Successfully submitted")

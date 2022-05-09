@@ -12,33 +12,21 @@ public class ReviewController : ControllerBase
     {
         _repo = repo;
     }
-    [HttpGet("GetReviews")]
+    [HttpGet("")]
     public async Task<IEnumerable<Review>> ListReviews()
     {
         return await _repo.ListReviews();
     }
-    [HttpPost("AddReview")]
+    [HttpPost("")]
     public async Task AddReview([FromBody] Review review)
     {
         await _repo.AddReview(review);
     }
 
-    [HttpGet("GetMealReviewByID")]
+    [HttpGet("{id}")]
     public async Task <List<Review>> GetMealReviews(int id)
     {
         return await _repo.GetMealReviews(id);
-    }
-
-    [HttpDelete("DeleteReview")]
-    public async Task DeleteReview(int id)
-    {
-        await _repo.DeleteReview(id);
-    }
-
-    [HttpPatch("UpdateReview")]
-    public async Task UpdateReview([FromBody] Review review)
-    {
-        await _repo.UpdateReview(review);
     }
 
 }

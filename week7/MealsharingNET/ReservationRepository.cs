@@ -20,15 +20,15 @@ public class ReservationRepository : IReservationRepository
     public async Task<List<Reservation>> GetMealReservations(int id)
     {
         await using var connection = new MySqlConnection(Shared.ConnectionString);
-        var meal = await connection.QueryAsync<Reservation>("select * from reservations where meal_id=@MealID", new { MealID = id} );
-        return meal.ToList();
+        var reservations = await connection.QueryAsync<Reservation>("select * from reservations where meal_id=@MealID", new { MealID = id} );
+        return reservations.ToList();
     }
 
     public async Task<IEnumerable<Reservation>> ListReservations()
     {
         await using var connection = new MySqlConnection(Shared.ConnectionString);
-        var meals = await connection.QueryAsync<Reservation>("select * from reservations");
-        return meals;
+        var reservations = await connection.QueryAsync<Reservation>("select * from reservations");
+        return reservations;
     }
     public async Task UpdateReservation(Reservation reservation)
     {

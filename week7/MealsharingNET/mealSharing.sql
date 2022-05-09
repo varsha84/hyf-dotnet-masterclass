@@ -14,7 +14,7 @@ CREATE TABLE `meals` (
   `location` varchar(45) DEFAULT NULL,
   `maxReservation` int DEFAULT NULL,
   `created_date` DATETIME NOT NULL,
-  `serving_date` DATETIME NOT NULL,
+  `when` DATETIME NOT NULL,
 
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB;
@@ -47,7 +47,7 @@ CREATE TABLE `reservations` (
     `meal_id` INT NOT NULL,
     PRIMARY KEY (`id`),
     FOREIGN KEY (meal_id) REFERENCES meals(id)
-    ) ENGINE=InnoDB
+    ) ENGINE=InnoDB;
 
 --
 -- Dumping data for table `reservations`
