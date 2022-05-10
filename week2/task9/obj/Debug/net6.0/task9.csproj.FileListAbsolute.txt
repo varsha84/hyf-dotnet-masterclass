@@ -1,0 +1,15 @@
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.csproj.AssemblyReference.cache
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.GeneratedMSBuildEditorConfig.editorconfig
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.AssemblyInfoInputs.cache
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.AssemblyInfo.cs
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.csproj.CoreCompileInputs.cache
+C:\hyf-dotnet-masterclass\week2\task9\bin\Debug\net6.0\task9.exe
+C:\hyf-dotnet-masterclass\week2\task9\bin\Debug\net6.0\task9.deps.json
+C:\hyf-dotnet-masterclass\week2\task9\bin\Debug\net6.0\task9.runtimeconfig.json
+C:\hyf-dotnet-masterclass\week2\task9\bin\Debug\net6.0\task9.dll
+C:\hyf-dotnet-masterclass\week2\task9\bin\Debug\net6.0\ref\task9.dll
+C:\hyf-dotnet-masterclass\week2\task9\bin\Debug\net6.0\task9.pdb
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.dll
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\ref\task9.dll
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.pdb
+C:\hyf-dotnet-masterclass\week2\task9\obj\Debug\net6.0\task9.genruntimeconfig.cache
